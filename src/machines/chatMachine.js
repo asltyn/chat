@@ -244,10 +244,11 @@ const chatMachine = createMachine(
       updateContacts: assign({ contacts: (c, e) => e.contacts }),
       updateChats: assign({
         chats: (ctx, e) => {
-          return e.chats.map(({ chatId, chatName, messages }) => ({
+          return e.chats.map(({ chatId, chatName, messages, photo }) => ({
             chatId,
             chatName,
             messages: messages.map(({ name, message }) => ({ name, message: cryptico.decrypt(message, ctx.RSAkey).plaintext })),
+            photo,
           }))
         },
       }),

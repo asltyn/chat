@@ -7,6 +7,7 @@ export default async ({ name, usersDB, chatsDB }) => {
     chatId: ch._id,
     chatName: ch.type === "single" ? ch.participants.find((p) => p !== user.name) : ch.chatName,
     messages: ch.messages.map((m) => ({ name: m.name, message: m.cipherMessage[name] })),
+    photo: ch.type === "single" ? (contactsToClient.find(({ name }) => ch.participants.includes(name)) || {}).photo : "",
   }))
   return { contacts: contactsToClient, chats: chatsToClient, photo: user.photo }
 }

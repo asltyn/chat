@@ -8,8 +8,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar"
 import Avatar from "@mui/material/Avatar"
 
 const ChatCard = ({ data, action }) => {
-  const { chatName, chatId, messages, activeChat } = data
-  const photo = ""
+  const { chatName, chatId, messages, photo, activeChat } = data
   let lastMessage = ""
   if (messages.length > 0) {
     const { name, message } = messages.slice(-1)[0]
