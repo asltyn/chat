@@ -1,0 +1,34 @@
+import * as React from "react"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Modal from "@mui/material/Modal"
+import CircularProgress from "@mui/material/CircularProgress"
+
+const CreateGroupChatWait = () => {
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+    maxHeight: "50%",
+    overflow: "auto",
+  }
+
+  return (
+    <Modal open={true} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
+          Waiting for server
+        </Typography>
+        <CircularProgress color="inherit" />
+      </Box>
+    </Modal>
+  )
+}
+
+export default CreateGroupChatWait
